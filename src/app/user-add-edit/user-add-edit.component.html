@@ -1,0 +1,57 @@
+<div mat-dialog-title>
+    <h2 mat-dialog-title>
+        {{ data ? 'Edit' : 'Add' }} User
+    </h2>
+</div>
+
+<form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput text="text" placeholder="Name" formControlName="name">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput text="text" placeholder="Email" formControlName="email">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Date of Birth</mat-label>
+                <input matInput [matDatepicker]="picker" placeholder="Ex. 01/01/2020" formControlName="dob">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-radio-group aria-label="Select an option" formControlName="gender">
+                <mat-label>Gender</mat-label>
+                <mat-radio-button value="Male">Male</mat-radio-button>
+                <mat-radio-button value="Female">Female</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Education</mat-label>
+                <mat-select formControlName="education">
+                    <mat-option *ngFor="let education of educations" [value]="education">
+                        {{education}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Company</mat-label>
+                <input matInput text="text" placeholder="Ex. Google" formControlName="company">
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions class="actions">
+        <button mat-raised-button color="warn" type="button" [mat-dialog-close]="false">Cancel</button>
+        <button mat-raised-button color="primary" type="submit">
+            {{ data ? 'Update' : 'Add' }}
+        </button>
+    </div>
+</form>

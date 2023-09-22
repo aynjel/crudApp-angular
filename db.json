@@ -1,0 +1,42 @@
+{
+  "post": [],
+  "comments": [],
+  "users": [
+    {
+      "name": "Anggi",
+      "email": "oretga@faemcil.om",
+      "education": "Master",
+      "dob": "2023-09-20T16:00:00.000Z",
+      "gender": "Male",
+      "company": "Google",
+      "id": 1
+    },
+    {
+      "name": "Banner",
+      "email": "ban@gmailc.com",
+      "education": "Doctorate",
+      "dob": "2023-09-15T16:00:00.000Z",
+      "gender": "Male",
+      "company": "Microsoft",
+      "id": 2
+    },
+    {
+      "name": "Tony",
+      "email": "tony@gmail.com",
+      "education": "Bachelor",
+      "dob": "2023-09-29T16:00:00.000Z",
+      "gender": "Female",
+      "company": "Meta",
+      "id": 3
+    },
+    {
+      "name": "asdf",
+      "email": "sadfa",
+      "education": "High School",
+      "dob": "2023-09-29T16:00:00.000Z",
+      "gender": "Male",
+      "company": "sdfsaf",
+      "id": 4
+    }
+  ]
+}

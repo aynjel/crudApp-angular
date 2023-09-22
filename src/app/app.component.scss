@@ -1,0 +1,20 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.search-filter{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+
+    input{
+        width: 100%;
+    }
+}
+
+.users-data{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
