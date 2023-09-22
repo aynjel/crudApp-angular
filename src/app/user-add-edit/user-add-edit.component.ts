@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-user-add-edit',
@@ -12,7 +13,8 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 export class UserAddEditComponent implements OnInit {
   userForm: FormGroup;
 
-  educations: string[] = ['High School', 'Bachelor', 'Master', 'Doctorate'];
+  educationList = ['High School', 'Bachelor', 'Master', 'Doctorate'];
+  educations$ = of(this.educationList);
 
   constructor(
     private _fb: FormBuilder, 

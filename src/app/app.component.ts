@@ -5,6 +5,7 @@ import { UserService } from './services/user.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+// import { of } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,8 @@ export class AppComponent implements OnInit {
 
   displayedColumns:string[] = ['Id', 'Name', 'Email', 'Gender', 'Education', 'Company', 'DOB', 'Actions'];
   dataSource!: MatTableDataSource<any>;
+  // dataSources$ = of(this.dataSource);
+  // users$ = this._userService.getUsers();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;

@@ -37,7 +37,7 @@
             <mat-form-field appearance="outline">
                 <mat-label>Education</mat-label>
                 <mat-select formControlName="education">
-                    <mat-option *ngFor="let education of educations" [value]="education">
+                    <mat-option *ngFor="let education of educations$ | async" [value]="education">
                         {{education}}
                     </mat-option>
                 </mat-select>
