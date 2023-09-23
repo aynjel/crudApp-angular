@@ -1,6 +1,12 @@
-# CrudApp
+# Frontend for my CrudApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.3.
+
+## Installation
+1. Clone the repository.
+2. Run `npm install` and `npm install -g @angular/cli` to install dependencies.
+3. Run `ng serve` to start the server.
+4. Navigate to `http://localhost:4200/` to view the app.
 
 ## Development server
 

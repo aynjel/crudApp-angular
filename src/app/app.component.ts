@@ -5,6 +5,7 @@ import { UserService } from './services/user.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import Swal from 'sweetalert2';
 // import { of } from 'rxjs';
 
 @Component({
@@ -45,9 +46,10 @@ export class AppComponent implements OnInit {
   getUsers() {
     this._userService.getUsers().subscribe({
       next: (result: any) => {
-        this.dataSource = new MatTableDataSource(result);
+        this.dataSource = new MatTableDataSource(result.data);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+        console.log(result);
       },
       error: (error) => {
         console.log(error);
@@ -56,16 +58,37 @@ export class AppComponent implements OnInit {
   }
 
   deleteUser(id: number) {
-    this._userService.deleteUser(id).subscribe({
-      next: (result) => {
-        alert('User deleted successfully');
-        console.log(result);
-        this.getUsers();
-      },
-      error: (error) => {
-        console.log(error);
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You will not be able to recover this user!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, keep it'
+    }).then((result: any) => {
+      if (result.isConfirmed) {
+        this._userService.deleteUser(id).subscribe({
+          next: (result) => {
+            console.log(result);
+            this.getUsers();
+          },
+          error: (error) => {
+            console.log(error);
+          }
+        });
+        Swal.fire(
+          'Deleted!',
+          'User has been deleted.',
+          'success'
+        )
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire(
+          'Cancelled',
+          'User is safe :)',
+          'error'
+        )
       }
-    });
+    })
   }
 
   openEditDialog(data: any) {
