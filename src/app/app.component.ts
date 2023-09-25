@@ -46,7 +46,8 @@ export class AppComponent implements OnInit {
   getUsers() {
     this._userService.getUsers().subscribe({
       next: (result: any) => {
-        this.dataSource = new MatTableDataSource(result.data);
+        // reverse the array
+        this.dataSource = new MatTableDataSource(result.data.reverse());
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         console.log(result);
