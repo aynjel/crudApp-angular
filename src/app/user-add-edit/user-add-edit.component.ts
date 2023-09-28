@@ -26,6 +26,7 @@ export class UserAddEditComponent implements OnInit {
     this.userForm = this._fb.group({
       name: '',
       email: '',
+      password: '',
       education: '',
       dob: '',
       gender: '',

@@ -15,7 +15,7 @@ import Swal from 'sweetalert2';
 })
 export class AppComponent implements OnInit {
 
-  displayedColumns:string[] = ['Id', 'Name', 'Email', 'Gender', 'Education', 'Company', 'DOB', 'Actions'];
+  displayedColumns:string[] = ['Id', 'Name', 'Email', 'Gender', 'Education', 'Company', 'DOB', 'Role', 'Status', 'Actions'];
   dataSource!: MatTableDataSource<any>;
   // dataSources$ = of(this.dataSource);
   // users$ = this._userService.getUsers();
@@ -47,7 +47,7 @@ export class AppComponent implements OnInit {
     this._userService.getUsers().subscribe({
       next: (result: any) => {
         // reverse the array
-        this.dataSource = new MatTableDataSource(result.data.reverse());
+        this.dataSource = new MatTableDataSource(result);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         console.log(result);

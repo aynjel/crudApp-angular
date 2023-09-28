@@ -18,6 +18,12 @@
         </div>
         <div class="row">
             <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput text="text" placeholder="Password" formControlName="password">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
                 <mat-label>Date of Birth</mat-label>
                 <input matInput [matDatepicker]="picker" placeholder="Ex. 01/01/2020" formControlName="dob">
                 <mat-hint>MM/DD/YYYY</mat-hint>
